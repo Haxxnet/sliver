@@ -654,8 +654,8 @@ message HTTPSessionInit {
   bytes Key = 1;
 }
 
-// ScreenshotReq - Request the implant take a screenshot
-message ScreenshotReq {
+// ScrShotReq - Request the implant take a screenshot
+message ScrShotReq {
   commonpb.Request Request = 9;
 }
 
