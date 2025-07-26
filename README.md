@@ -12,6 +12,12 @@ The server and client support MacOS, Windows, and Linux. Implants are supported 
 
 For PRs containing bug fixes specific to Sliver v1.5, please target the [`v1.5.x/master` branch](https://github.com/BishopFox/sliver/tree/v1.5.x/master).
 
+## Customizations
+
+- Remove AMSI bypass from donut generation
+- Bypass ScreenshotReq signatures
+- Bypass Multi_Trojan_Sliver_3d6b7cd3 rule detection
+
 ### Features
 
 - Dynamic code generation
