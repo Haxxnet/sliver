@@ -65,13 +65,14 @@ func DonutShellcodeFromPE(pe []byte, arch string, dotnet bool, params string, cl
 
 // DonutFromAssembly - Generate a donut shellcode from a .NET assembly
 func DonutFromAssembly(assembly []byte, isDLL bool, arch string, params string, method string, className string, appDomain string) ([]byte, error) {
+
 	ext := ".exe"
 	if isDLL {
 		ext = ".dll"
 	}
 	donutArch := getDonutArch(arch)
 	config := donut.DefaultConfig()
-	config.Bypass = 3
+	config.Bypass = 1
 	config.Runtime = "v4.0.30319" // we might want to make this configurable
 	config.Format = 1
 	config.Arch = donutArch
