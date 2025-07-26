@@ -168,6 +168,7 @@ func beaconStartup() {
 		abort <- struct{}{}
 	}()
 	beacons := transports.StartBeaconLoop(abort)
+	const maxConnectionErrors = 1000
 	for beacon := range beacons {
 		// {{if .Config.Debug}}
 		log.Printf("Next beacon = %v", beacon)
@@ -176,9 +177,9 @@ func beaconStartup() {
 			err := beaconMainLoop(beacon)
 			if err != nil {
 				connectionErrors++
-				if transports.GetMaxConnectionErrors() < connectionErrors {
-					return
-				}
+				if connectionErrors > maxConnectionErrors {
+	                return
+	            }
 			}
 		}
 		reconnect := transports.GetReconnectInterval()
